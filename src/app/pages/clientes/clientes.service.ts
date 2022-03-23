@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Clientes } from 'src/app/core/models/clientes.model';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -12,14 +13,17 @@ export class ClientesService {
   constructor(
     private http: HttpClient
   ) {
-    this.apiURL = 'https://60d49dd961160900173cbbb9.mockapi.io/v1/clientes';
+    // forma hardcode
+    // this.apiURL = 'https://60d49dd961160900173cbbb9.mockapi.io/v1/clientes';
+    this.apiURL = `${environment.apiUrl}/clientes`;
   }
 
   getAll() {
     return this.http.get<any>(`${this.apiURL}`)
       .toPromise()
-      //.then(res => res.data as Clientes[])
-      // .then(data => data);
       .then(response => response);
+  }
+  delete(id: number){
+    return this.http.delete(`${this.apiURL}/${id}`).toPromise();
   }
 }

@@ -1,6 +1,6 @@
-import { ClientesService } from './../folder/clientes/clientes.service';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { ClientesService } from '../pages/clientes/clientes.service';
 
 @NgModule({
   declarations: [ ],

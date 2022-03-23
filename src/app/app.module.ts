@@ -8,8 +8,7 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { CoreModule } from './core/core.module';
-
-
+import { HomeModule } from './pages/home/home.module';
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
@@ -17,6 +16,7 @@ import { CoreModule } from './core/core.module';
     BrowserModule, 
     IonicModule.forRoot(), 
     AppRoutingModule,
+    HomeModule,
     HttpClientModule,
     CoreModule
   ],

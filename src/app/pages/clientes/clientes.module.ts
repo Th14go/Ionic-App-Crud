@@ -1,7 +1,8 @@
-import { HttpClient } from '@angular/common/http';
-import { ClientesRoutingModule } from './clientes.routing';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { IonicModule } from '@ionic/angular';
+
+import { ClientesRoutingModule } from './clientes.routing';
 import { ClienteCadastroComponent } from './cliente-cadastro/cliente-cadastro.component';
 import { ClientesListaComponent } from './clientes-lista/clientes-lista.component';
 
@@ -12,6 +13,7 @@ import { ClientesListaComponent } from './clientes-lista/clientes-lista.componen
   ],
   imports: [
     CommonModule,
+    IonicModule,
     ClientesRoutingModule
   ]
 })
