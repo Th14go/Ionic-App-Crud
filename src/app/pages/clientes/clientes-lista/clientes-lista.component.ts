@@ -26,7 +26,6 @@ export class ClientesListaComponent implements OnInit {
     this.clientesService.getAll()
       .then(obj => {
         this.clientes = obj;
-        console.log(this.clientes);
       })
   }
 

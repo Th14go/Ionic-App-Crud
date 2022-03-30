@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { ClientesService } from '../pages/clientes/clientes.service';
+import { EmpresasService } from '../pages/empresas/empresas.service';
 
 @NgModule({
   declarations: [ ],
@@ -8,7 +9,8 @@ import { ClientesService } from '../pages/clientes/clientes.service';
     RouterModule
   ],
   providers: [
-    ClientesService
+    ClientesService,
+    EmpresasService
   ],
   exports: [ ],
 })

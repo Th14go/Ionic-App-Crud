@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Clientes } from 'src/app/core/models/clientes.model';
+import { ToastService } from 'src/app/core/services/toast.service';
+import { ClientesService } from '../clientes.service';
 
 @Component({
   selector: 'app-cliente-cadastro',
@@ -7,9 +11,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ClienteCadastroComponent implements OnInit {
 
-  constructor() { }
+  title: 'Cliente Cadastro';
+  id: string;
+  cliente = new Clientes();
+
+  constructor(
+    private toast: ToastService,
+    private clienteService: ClientesService,
+    private activatedRoute: ActivatedRoute
+  ) { }
 
   ngOnInit(): void {
   }
-
+  carregarCliente(id: number) {
+    this.clienteService.getById(id)
+      .then(obj => {
+        this.cliente = obj;
+      })
+  }
 }
