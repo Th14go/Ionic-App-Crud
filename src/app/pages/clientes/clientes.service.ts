@@ -23,12 +23,18 @@ export class ClientesService {
       .toPromise()
       .then(response => response);
   }
-  delete(id: number) {
-    return this.http.delete(`${this.apiURL}/${id}`)
+  getById(id: string) {
+    return this.http.get<any>(`${this.apiURL}/${id}`)
       .toPromise();
   }
-  getById(id: number) {
-    return this.http.get<any>(`${this.apiURL}/${id}`)
+  create(cliente: Clientes) {
+    return this.http.post<any>(`${this.apiURL}`, cliente).toPromise();
+  }
+  update(id: string, cliente: Clientes) {
+    return this.http.put<any>(`${this.apiURL}/${id}`, cliente).toPromise();
+  }
+  delete(id: string) {
+    return this.http.delete(`${this.apiURL}/${id}`)
       .toPromise();
   }
 }

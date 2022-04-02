@@ -10,23 +10,24 @@
 
 <ion-content>
   <ion-list>
-    <ion-item *ngFor="let obj of clientes">
+    <ion-item *ngFor="let cliente of clientes">
       <ion-label>
-        <h1>Nome: {{obj.nome}}</h1>
-        <p class="ion-text-wrap">Cpf: {{obj.cpf}}</p>
-        <p class="ion-text-wrap">Telefone: {{obj.telefone}}</p>
+        <h1>Nome: {{cliente.nome}}</h1>
+        <p class="ion-text-wrap">Cpf: {{cliente.cpf}}</p>
+        <p class="ion-text-wrap">Data Nasc: {{cliente.dataNasc}}</p>
+        <p class="ion-text-wrap">Telefone: {{cliente.telefone}}</p>
 
       <ion-grid>
         <ion-row>
           <ion-col>
-            <ion-button expand="block" color="primary">
+            <ion-button expand="block" color="primary" [routerLink]="['/clientes', cliente.id]">
               <ion-icon slot="start" name="pencil"></ion-icon>
               Editar
             </ion-button>
           </ion-col>
           <ion-col>
             <ion-button expand="block" color="danger" fill="outline" 
-            (click)="remove(obj)">
+            (click)="remove(cliente)">
               <ion-icon slot="start" name="trash"></ion-icon>
               Excluir
             </ion-button>

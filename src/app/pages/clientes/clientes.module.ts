@@ -5,6 +5,7 @@ import { IonicModule } from '@ionic/angular';
 import { ClientesRoutingModule } from './clientes.routing';
 import { ClienteCadastroComponent } from './cliente-cadastro/cliente-cadastro.component';
 import { ClientesListaComponent } from './clientes-lista/clientes-lista.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -13,6 +14,7 @@ import { ClientesListaComponent } from './clientes-lista/clientes-lista.componen
   ],
   imports: [
     CommonModule,
+    FormsModule,
     IonicModule,
     ClientesRoutingModule
   ]

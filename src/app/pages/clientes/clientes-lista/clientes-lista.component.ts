@@ -18,9 +18,12 @@ export class ClientesListaComponent implements OnInit {
     private toast: ToastService
   ) { }
 
-  ngOnInit(): void {
+  ngOnInit() { }
+
+  ionViewDidEnter(){
     this.carregarLista();
-  }
+   }
+
 
   carregarLista() {
     this.clientesService.getAll()

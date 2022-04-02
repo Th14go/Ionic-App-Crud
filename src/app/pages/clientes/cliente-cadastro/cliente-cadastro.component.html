@@ -1,23 +1,38 @@
-<!-- <ion-header>
-    <ion-toolbar color="medium">
-      <ion-title>{{title}}</ion-title>
+<ion-header>
+    <ion-toolbar color="primary">
+      <ion-title>{{ editando ? 'Edição' : 'Cadastro'}} Cliente</ion-title>
       <ion-buttons slot="start">
-        <ion-back-button defaultHref="categorias"></ion-back-button>
+        <ion-back-button defaultHref="clientes"></ion-back-button>
       </ion-buttons>
     </ion-toolbar>
   </ion-header>
   
   <ion-content class="ion-padding">
-    <form (ngSubmit)="onSubmit()" #f="ngForm">
+    <form (ngSubmit)="onSubmit()" #form="ngForm">
   
       <ion-item>
         <ion-label position="stacked">Nome</ion-label>
-        <ion-input [(ngModel)]="categoriaModel.nome" name="descricao" #descricao="ngModel"></ion-input>
+        <ion-input [(ngModel)]="clientes.nome" name="nome" #nome="ngModel" required></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Cpf</ion-label>
+        <ion-input [(ngModel)]="clientes.cpf" name="cpf" #cpf="ngModel" required></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Data Nascimento</ion-label>
+        <ion-input [(ngModel)]="clientes.dataNasc" name="dataNasc" #dataNasc="ngModel" required></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Telefone</ion-label>
+        <ion-input [(ngModel)]="clientes.telefone" name="telefone" #telefone="ngModel" required></ion-input>
       </ion-item>
     
-      <ion-button type="submit" class="ion-padding" color="primary" expand="block">
+      <ion-button type="submit" class="ion-padding" [disabled]="form.invalid" color="primary" expand="block">
         Salvar
       </ion-button>
     </form>
   </ion-content>
-   -->
+  
