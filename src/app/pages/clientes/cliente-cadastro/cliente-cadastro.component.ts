@@ -17,7 +17,6 @@ export class ClienteCadastroComponent implements OnInit {
 
   regex = new Regex();
   clientes = new Clientes();
-  // cliente: Clientes[];
   idcli: string;
 
 
@@ -64,6 +63,9 @@ export class ClienteCadastroComponent implements OnInit {
 
     }
   }
+  atualizarTituloEdicao() {
+    this.title.setTitle(`Edição de Cliente: ${this.clientes.nome}`);
+  }
   // salvar(form: NgForm) {
   //   if (this.editando) {
   //     this.atualizar(form);
@@ -92,7 +94,4 @@ export class ClienteCadastroComponent implements OnInit {
   //     })
   //     .catch(erro => this.errorHandler.handle(erro));
   // }
-  atualizarTituloEdicao() {
-    this.title.setTitle(`Edição de Cliente: ${this.clientes.nome}`);
-  }
 }
