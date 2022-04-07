@@ -24,6 +24,10 @@ export class EmpresasListaComponent implements OnInit {
     this.carregarLista();
   }
 
+  ionViewDidEnter(){
+    this.carregarLista();
+   }
+
   carregarLista() {
     this.empresaService.getAll()
       .then(obj => {

@@ -13,6 +13,10 @@ const routes: Routes = [
     path: 'novo',
     component: EmpresaCadastroComponent
   },
+  {
+    path: ':id',
+    component: EmpresaCadastroComponent
+  }
   
 ];
 

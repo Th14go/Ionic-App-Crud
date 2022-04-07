@@ -1,19 +1,19 @@
-import { Empresas } from './../../core/models/empresas.model';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Categorias } from 'src/app/core/models/categorias.model';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
-export class EmpresasService {
+export class CategoriasService {
 
   apiURL: string;
 
   constructor(
     private http: HttpClient
   ) {
-    this.apiURL = `${environment.apiUrl}/empresas`;
+    this.apiURL = `${environment.apiUrl}/categorias`;
   }
 
   getAll() {
@@ -25,14 +25,15 @@ export class EmpresasService {
     return this.http.get<any>(`${this.apiURL}/${id}`)
       .toPromise();
   }
-  create(empresa: Empresas) {
-    return this.http.post<any>(`${this.apiURL}`, empresa).toPromise();
+  create(categoria: Categorias) {
+    return this.http.post<any>(`${this.apiURL}`, categoria).toPromise();
   }
-  update(id: string, cliente: Empresas) {
-    return this.http.put<any>(`${this.apiURL}/${id}`, cliente).toPromise();
+  update(id: string, categoria: Categorias) {
+    return this.http.put<any>(`${this.apiURL}/${id}`, categoria).toPromise();
   }
   delete(id: string) {
     return this.http.delete(`${this.apiURL}/${id}`)
       .toPromise();
   }
 }
+

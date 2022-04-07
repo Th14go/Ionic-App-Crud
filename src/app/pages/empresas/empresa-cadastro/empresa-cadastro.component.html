@@ -1,3 +1,28 @@
-<p>
-  empresa-cadastro works!
-</p>
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>{{ editando ? 'Edição' : 'Cadastro'}} Empresa</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="empresas"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <form (ngSubmit)="onSubmit()" #form="ngForm">
+
+    <ion-item>
+      <ion-label position="stacked">Cnpj</ion-label>
+      <ion-input [(ngModel)]="empresas.cnpj" name="cnpj" #cnpj="ngModel" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Cpf</ion-label>
+      <ion-input [(ngModel)]="empresas.razaoSocial" name="razaoSocial" #razaoSocial="ngModel" required></ion-input>
+    </ion-item>
+
+  
+    <ion-button type="submit" class="ion-padding" [disabled]="form.invalid" color="primary" expand="block">
+      Salvar
+    </ion-button>
+  </form>
+</ion-content>

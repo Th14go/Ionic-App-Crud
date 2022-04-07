@@ -10,21 +10,22 @@
 
 <ion-content>
   <ion-list>
-    <ion-item *ngFor="let obj of empresas">
+    <ion-item *ngFor="let empresa of empresas">
       <ion-label>
-        <h1>Cnpj: {{obj.cnpj}}</h1>
-        <p class="ion-text-wrap">Razão Social: {{obj.razaoSocial}}</p>
+        <h1>Cnpj: {{empresa.cnpj}}</h1>
+        <p class="ion-text-wrap">Razão Social: {{empresa.razaoSocial}}</p>
         <ion-grid>
           <ion-row>
             <ion-col>
-              <ion-button expand="block" color="primary">
+              <ion-button expand="block" color="primary"
+              [routerLink]="['/empresas', empresa.id]">
                 <ion-icon slot="start" name="pencil"></ion-icon>
                 Editar
               </ion-button>
             </ion-col>
             <ion-col>
               <ion-button expand="block" color="danger" fill="outline"
-              (click)="remove(obj)">
+              (click)="remove(empresa)">
                 <ion-icon slot="start" name="trash"></ion-icon>
                 Excluir
               </ion-button>
