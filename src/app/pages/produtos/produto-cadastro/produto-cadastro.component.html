@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>{{ editando ? 'Edição de' : 'Cadastro de'}} Produto</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="produtos"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <form (ngSubmit)="onSubmit()" #f="ngForm">
+    <ion-item>
+      <ion-label position="stacked">Descrição</ion-label>
+    <ion-input [(ngModel)]="produto.descricao" name="descricao" #descricao="ngModel"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Categorias</ion-label>
+      <ion-select placeholder="Selecione..." [(ngModel)]="produto.categoria" name="categoria" #categoria="ngModel">
+        <ion-select-option *ngFor="let categoria of categorias" [value]="categoria.id">{{categoria.descricao}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Valor</ion-label>
+      <ion-input type="tel" [(ngModel)]="produto.valor" name="valor" #valor="ngModel"></ion-input>
+    </ion-item>
+    
+    <ion-button type="submit" class="ion-padding" color="primary" expand="block">
+      Salvar
+    </ion-button>
+  </form>
+</ion-content>

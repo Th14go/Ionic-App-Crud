@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Produtos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <p *ngIf="produtos.length == 0" class="ion-padding ion-text-center">
+    Nenhum produto encontrado. <br />Clique em adicionar para incluir um novo produto
+  </p>
+
+  <ion-list [hidden]="produtos.length == 0">
+    <ion-item *ngFor="let produto of produtos">
+      <ion-label>
+        <h1 class="ion-text-wrap">{{produto.descricao}}</h1>
+        <!-- <small>{{produto.categoria.nome}}</small> -->
+        <p class="text-wrap">{{produto.categoria.desricao}}</p>
+        <!-- <p class="text-wrap">{{produto.descricao}}</p> -->
+
+        <ion-text color="success">
+          <p>{{produto.valor | currency:'BRL'}}</p>
+        </ion-text>
+
+        <!-- Action buttons -->
+        <ion-grid>
+          <ion-row>
+            <ion-col>
+              <ion-button expand="block" color="primary" [routerLink]="['/produtos', produto.id]">
+                <ion-icon slot="start" name="pencil"></ion-icon>
+                Editar
+              </ion-button>
+            </ion-col>
+            <ion-col>
+              <ion-button expand="block" color="danger" fill="outline" (click)="remove(produto)">
+                <ion-icon slot="start" name="trash"></ion-icon>
+                Excluir
+              </ion-button>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed" color="primary">
+    <ion-fab-button [routerLink]="['/produtos/novo']">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

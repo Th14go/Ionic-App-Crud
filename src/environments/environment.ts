@@ -4,6 +4,7 @@
 
 export const environment = {
   apiUrl: 'https://60d49dd961160900173cbbb9.mockapi.io/v1',
+  apiUrl2: 'https://6271a4abc455a64564b5fadc.mockapi.io',
   production: false
 };
 
