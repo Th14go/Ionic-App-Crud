@@ -20,7 +20,28 @@
       <ion-input [(ngModel)]="empresas.razaoSocial" name="razaoSocial" #razaoSocial="ngModel" required></ion-input>
     </ion-item>
 
-  
+    <ion-item>
+      <ion-label position="stacked">Cep</ion-label>
+      <ion-input
+      [(ngModel)]="empresas.cep" (change)="consultaCEP(cep, form)" id="cep" name="cep" #cep="ngModel" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Logradouro</ion-label>
+      <ion-input [(ngModel)]="empresas.logradouro" name="logradouro" #logradouro="ngModel" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Bairro</ion-label>
+      <ion-input [(ngModel)]="empresas.bairro" name="bairro" #bairro="ngModel" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Cidade</ion-label>
+      <ion-input [(ngModel)]="empresas.localidade" name="localidade" #localidade="ngModel" required></ion-input>
+    </ion-item>
+
+
     <ion-button type="submit" class="ion-padding" [disabled]="form.invalid" color="primary" expand="block">
       Salvar
     </ion-button>
