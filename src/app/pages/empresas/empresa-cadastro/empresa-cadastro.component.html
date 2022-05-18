@@ -12,7 +12,7 @@
 
     <ion-item>
       <ion-label position="stacked">Cnpj</ion-label>
-      <ion-input [(ngModel)]="empresas.cnpj"
+      <ion-input type="tel" [(ngModel)]="empresas.cnpj"
       (ionBlur)="consultaCNPJ(cnpj, form)" name="cnpj" #cnpj="ngModel" placeholder="00000000000000"  maxlength="14" required></ion-input>
     </ion-item>
 
@@ -24,7 +24,7 @@
     <ion-item>
       <ion-label position="stacked">Cep</ion-label>
       <ion-input
-      [(ngModel)]="empresas.cep" (change)="consultaCEP(cep, form)" id="cep" name="cep" #cep="ngModel" maxlength="8" placeholder="00000000" required></ion-input>
+      [(ngModel)]="empresas.cep" (ionBlur)="consultaCEP(cep, form)" id="cep" name="cep" #cep="ngModel" maxlength="8" placeholder="00000000" required></ion-input>
     </ion-item>
 
     <ion-item>

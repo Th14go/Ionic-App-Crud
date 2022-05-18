@@ -64,10 +64,12 @@ export class EmpresaCadastroComponent implements OnInit {
     this.title.setTitle(`Edição de Empresa: ${this.empresas.razao_social}`);
   }
   consultaCEP(cep, form) {
+    console.log(cep);
     let newCep = cep.model;
     newCep = newCep.replace(/\D/g, '');
     if (newCep !== null && newCep !== '') {
       this.resetaCepForm(form);
+      console.log(form);
       this.govService.consultaCEP(newCep)
         .subscribe((dados) => this.populaCepForm(dados, form));
     }
@@ -75,7 +77,6 @@ export class EmpresaCadastroComponent implements OnInit {
   populaCepForm(dados, formulario) {
     formulario.form.patchValue({
       logradouro: dados.logradouro.toUpperCase(),
-      cep: dados.cep,
       bairro: dados.bairro.toUpperCase(),
       complemento: dados.complemento.toUpperCase(),
       localidade: dados.localidade.toUpperCase(),
@@ -97,7 +98,7 @@ export class EmpresaCadastroComponent implements OnInit {
     let newCnpj = cnpj.model;
     newCnpj = newCnpj.replace(/\D/g, '');
     if (newCnpj !== null && newCnpj !== '') {
-      this.resetaCNPForm(form);
+      this.resetaCNPJForm(form);
       this.govService.consultaCNPJ(newCnpj)
         .subscribe((dados) => this.populaCNPJForm(dados, form));
     }
@@ -105,7 +106,6 @@ export class EmpresaCadastroComponent implements OnInit {
 
   populaCNPJForm(dados, formulario) {
     formulario.form.patchValue({
-      cnpj: dados.cnpj,
       razao_social: dados.razao_social.toUpperCase(),
       numero: dados.numero,
       ddd_telefone_1: dados.ddd_telefone_1,
@@ -117,7 +117,7 @@ export class EmpresaCadastroComponent implements OnInit {
     });
     this.empresas.localidade = dados.municipio.toUpperCase();
   }
-  resetaCNPForm(formulario) {
+  resetaCNPJForm(formulario) {
     formulario.form.patchValue({
       razao_social: null,
       numero: null,
