@@ -1,11 +1,14 @@
 export class Empresas {
     id: string;
     cnpj: number;
-    razaoSocial: string;
+    razao_social: string;
     cep: string;
     logradouro: string;
+    numero: string;
     complemento: string;
     bairro: string;
     localidade: string;
+    municipio: string;
     uf: string;
+    ddd_telefone_1: string;
 }

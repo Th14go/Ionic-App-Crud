@@ -25,6 +25,7 @@ export class GovService {
       // Valida o formato do cep
       if (validacep.test(cep)) {
         return this.http.get(`//viacep.com.br/ws/${cep}/json`);
+        // return this.http.get(`https://brasilapi.com.br/api/cep/v2/${cep}`);
       }
     }
     return of({});

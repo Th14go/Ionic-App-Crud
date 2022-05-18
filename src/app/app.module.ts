@@ -9,6 +9,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { CoreModule } from './core/core.module';
 import { HomeModule } from './pages/home/home.module';
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],

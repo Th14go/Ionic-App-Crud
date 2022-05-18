@@ -61,33 +61,68 @@ export class EmpresaCadastroComponent implements OnInit {
     }
   }
   atualizarTituloEdicao() {
-    this.title.setTitle(`Edição de Empresa: ${this.empresas.razaoSocial}`);
+    this.title.setTitle(`Edição de Empresa: ${this.empresas.razao_social}`);
   }
   consultaCEP(cep, form) {
-    console.log(cep);
     let newCep = cep.model;
     newCep = newCep.replace(/\D/g, '');
     if (newCep !== null && newCep !== '') {
       this.resetaCepForm(form);
-      console.log(form);
       this.govService.consultaCEP(newCep)
         .subscribe((dados) => this.populaCepForm(dados, form));
     }
   }
   populaCepForm(dados, formulario) {
-
     formulario.form.patchValue({
-      logradouro: dados.logradouro,
+      logradouro: dados.logradouro.toUpperCase(),
       cep: dados.cep,
-      bairro: dados.bairro,
-      complemento: dados.complemento,
-      localidade: dados.localidade,
-      uf: dados.uf
+      bairro: dados.bairro.toUpperCase(),
+      complemento: dados.complemento.toUpperCase(),
+      localidade: dados.localidade.toUpperCase(),
+      uf: dados.uf.toUpperCase()
     });
   }
 
   resetaCepForm(formulario) {
     formulario.form.patchValue({
+      logradouro: null,
+      bairro: null,
+      complemento: null,
+      localidade: null,
+      uf: null
+    });
+  }
+
+  consultaCNPJ(cnpj, form) {
+    let newCnpj = cnpj.model;
+    newCnpj = newCnpj.replace(/\D/g, '');
+    if (newCnpj !== null && newCnpj !== '') {
+      this.resetaCNPForm(form);
+      this.govService.consultaCNPJ(newCnpj)
+        .subscribe((dados) => this.populaCNPJForm(dados, form));
+    }
+  }
+
+  populaCNPJForm(dados, formulario) {
+    formulario.form.patchValue({
+      cnpj: dados.cnpj,
+      razao_social: dados.razao_social.toUpperCase(),
+      numero: dados.numero,
+      ddd_telefone_1: dados.ddd_telefone_1,
+      logradouro: dados.logradouro.toUpperCase(),
+      cep: dados.cep,
+      bairro: dados.bairro.toUpperCase(),
+      complemento: dados.complemento.toUpperCase(),
+      uf: dados.uf.toUpperCase()
+    });
+    this.empresas.localidade = dados.municipio.toUpperCase();
+  }
+  resetaCNPForm(formulario) {
+    formulario.form.patchValue({
+      razao_social: null,
+      numero: null,
+      municipio: null,
+      ddd_telefone_1: null,
       logradouro: null,
       cep: null,
       bairro: null,
@@ -96,6 +131,7 @@ export class EmpresaCadastroComponent implements OnInit {
       uf: null
     });
   }
+
 
   onBlur() {
     alert("input lost focus");

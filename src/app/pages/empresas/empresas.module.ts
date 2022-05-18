@@ -5,6 +5,7 @@ import { IonicModule } from '@ionic/angular';
 import { EmpresasRoutingModule } from './empresas.routing';
 import { EmpresasListaComponent } from './empresas-lista/empresas-lista.component';
 import { EmpresaCadastroComponent } from './empresa-cadastro/empresa-cadastro.component';
+import { IonicInputMaskModule } from '@thiagoprz/ionic-input-mask';
 
 
 
@@ -17,7 +18,8 @@ import { EmpresaCadastroComponent } from './empresa-cadastro/empresa-cadastro.co
     CommonModule,
     IonicModule,
     FormsModule,
-    EmpresasRoutingModule
+    EmpresasRoutingModule,
+    IonicInputMaskModule
   ]
 })
 export class EmpresasModule { }
